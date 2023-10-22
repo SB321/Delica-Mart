@@ -1,0 +1,33 @@
+.mat-btn{
+
+    background-color: aqua;
+}
+.w-50{
+
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card{
+
+    height: 100% !important;
+}
+
+
+.sign{
+
+    width:49% !important;
+    height: 40px!important;
+    background-color: white;
+    border: 2px solid !important;
+    border-color: #f44336 !important;
+    border-radius: 5px;
+}
+
+.sign:hover{
+
+    background-color: #f44336;
+    color: white;
+    font-weight: 500;
+}

@@ -1,0 +1,24 @@
+.space-buttons {
+    flex: 1 1 auto;
+}
+.mat-blue{
+
+    background-color: #0073e6;
+}
+
+.ctn{
+
+    color: white !important;
+}
+
+.mat-org{
+
+    background-color: #f44336;
+}
+
+.mat-primary:focus{
+
+    background-color: #0073e6;
+    color: white;
+}
+
