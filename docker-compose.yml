@@ -2,14 +2,16 @@ version: "2"
 
 services:
   mysqldb:
-    image: mysql:8-oracle
+    image: mysql:5.7
 
     networks:
       - backendNetwork
 
     environment:
-      - MYSQL_ROOT_PASSWORD=1
-      - MYSQL_DATABASE=delicamartdb
+      MYSQL_DATABASE: employee_management_system
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+
     ports:
       - 3306:3306
 
@@ -22,7 +24,9 @@ services:
     ports:
       - "9090:9090"
     environment:
-      - spring.datasource.url=jdbc:mysql://mysqldb:3306/delicamartdb?useSSL=false
+      - spring.datasource.url=jdbc:mysql://mysqldb:3306/employee_management_system?autoReconnect=true&useSSL=false
+      - spring.datasource.username=root
+      - spring.datasource.password=root
     networks:
       - backendNetwork
       - frontendNetwork
@@ -36,7 +40,7 @@ services:
       context: ./delicamart-frontend
       dockerfile: Dockerfile
     ports:
-      - 4200:4200
+      - 4200:80
     depends_on:
       - delicamart-backend
     networks:
