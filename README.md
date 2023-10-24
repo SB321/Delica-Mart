@@ -10,7 +10,7 @@
 ### 1. Angular Frontend:
 
 * User-friendly and responsive user interface (UI) with a clean and intuitive design.
-* Shopping cart functionality for adding/removing items.
+* Shopping cart functionality for adding and removing items.
 * Search and filtering options for easy product discovery.
 
 ### 2. Spring Boot Backend:
