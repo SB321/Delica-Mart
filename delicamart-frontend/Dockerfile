@@ -1,19 +1,29 @@
-FROM node:slim as build
-#RUN addgroup app && adduser --system --group app
-#USER app
-# install dependencies first, in a different location for easier app bind mounting for local development
-# due to default /home permissions we have to create the dir with root and change perms
+FROM node:14 as build
 WORKDIR /app
-RUN npm install -g @angular/cli
-# the official node image provides an unprivileged user as a security best practice
-# but we have to manually enable it. We put it here so npm installs dependencies as the same
-# user who runs the app.
-# https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md#non-root-user
-COPY package*.json ./
-#COPY package.json package-lock.json* ./
-RUN npm install
-#ENV PATH /home/app/node_modules/.bin:$PATH
-# copy in our source code last, as it changes the most
 
-#COPY --chown=node:node . .
-CMD ng serve
+# Install Angular CLI
+RUN npm install -g @angular/cli
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install app dependencies
+RUN npm install
+
+# Copy the rest of the app source code
+COPY . .
+
+# Build the Angular app for production
+RUN ng build --prod
+
+# Use a lightweight Nginx image to serve the built app
+FROM nginx:alpine
+
+# Copy the built app to the Nginx web server directory
+COPY --from=build /app/dist/* /usr/share/nginx/html/
+
+Expose 80
+#EXPOSE 4200
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
