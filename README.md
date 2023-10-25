@@ -4,6 +4,7 @@
 
 * The Delica-Mart project is a feature-rich e-commerce platform built to fulfill online shopping needs.
 * This project leverages Angular for the frontend and Spring Boot for the backend to ensure a robust, and user-friendly e-commerce platform.
+* Additionally, the project uses Docker containers and Nginx to serve the Angular frontend.
 
 
 ## Key Features
