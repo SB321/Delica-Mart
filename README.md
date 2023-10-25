@@ -4,7 +4,7 @@
 
 * The Delica-Mart project is a feature-rich e-commerce platform built to fulfill online shopping needs.
 * This project leverages Angular for the frontend and Spring Boot for the backend to ensure a robust, and user-friendly e-commerce platform.
-* Additionally, the project uses Docker containers and Nginx to serve the Angular frontend and is deployed on Google Cloud Platform (GCP).
+
 
 ## Key Features
 
@@ -25,4 +25,3 @@
 * Containerized using Docker, which allows for easy packaging of both the Angular frontend and Spring Boot backend into separate containers.
 * A Docker Compose file is included to orchestrate the deployment of these containers. It defines the services, networks, and volumes needed to run the application.
 * Nginx is used to serve the Angular frontend within its own Docker container. The Nginx configuration is customized to serve the Angular app efficiently.
-* Delica-Mart is deployed on Google Cloud Platform (GCP), a secure and scalable cloud infrastructure.
