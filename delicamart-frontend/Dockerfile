@@ -22,7 +22,7 @@ FROM nginx:alpine
 # Copy the built app to the Nginx web server directory
 COPY --from=build /app/dist/* /usr/share/nginx/html/
 
-Expose 80
+EXPOSE 80
 #EXPOSE 4200
 
 # Start Nginx
